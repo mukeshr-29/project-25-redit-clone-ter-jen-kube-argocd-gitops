@@ -18,7 +18,7 @@ pipeline{
             steps{
                 sh """
                     cat deployment.yml
-                    sed -i 's/${APP_NAME}.*mukeshr29/${APP_NAME}:${IMAGE_TAG}/g' deployment.yml
+                    sed -i 's|\\(image: mukeshr29/reddit-clone\\):.*|\\1:${IMAGE_TAG}|' deployment.yml
                     cat deployment.yml
                 """
             }
